@@ -1,0 +1,25 @@
+{
+  "name": "d3",
+  "version": "1.0.0",
+  "description": "d3使用测试",
+  "main": "index.js",
+  "scripts": {
+    "serve": "browser-sync start --server --files './dist/* , ./public/*' --index './public/index.html'",
+    "build": "rollup --config rollup.config.js",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+    "watch": " rollup --config rollup.config.js --watch"
+  },
+  "keywords": [
+    "d3"
+  ],
+  "author": "hao503106@163.com",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^7.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "concurrently": "^6.2.0",
+    "rollup": "^2.52.2"
+  }
+}
