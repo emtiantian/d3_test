@@ -1,4 +1,5 @@
 
+import resolve from '@rollup/plugin-node-resolve';
 export default [
   {
     input: 'd3/index.js',
@@ -9,6 +10,7 @@ export default [
     },
     watch: {
       include: 'd3/**'
-    }
+    },
+    plugins:[resolve()]
   },
 ];

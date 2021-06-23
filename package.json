@@ -4,9 +4,10 @@
   "description": "d3使用测试",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start --server --files './dist/* , ./public/*' --index './public/index.html'",
+    "serve": "browser-sync start --server --files './dist/*, ./public/*' --index './public/index.html'",
+    "sync-serve": "node ./server/index.js",
     "build": "rollup --config rollup.config.js",
-    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+    "dev": "concurrently \"npm run watch\" \"npm run sync-serve\"",
     "watch": " rollup --config rollup.config.js --watch"
   },
   "keywords": [
@@ -15,6 +16,7 @@
   "author": "hao503106@163.com",
   "license": "ISC",
   "dependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "d3": "^7.0.0"
   },
   "devDependencies": {
