@@ -1,9 +1,24 @@
 import * as d3 from "d3"
 
 console.log("1256789")
-d3.select('#d3')
+let d3Div = d3.select('#d3')
+let data =[4, 8, 15, 16, 23, 42,89]
+let colorMap = d3.interpolateRgb(
+  d3.rgb('#d6e685'),
+  d3.rgb('#1e6823')
+)
+// 柱状图
+function count(){
+  d3Div
   .selectAll("div")
   .data([4, 8, 15, 16, 23, 42,89])
   .enter()
   .append("div")
   .style("height", (d)=> d + "px")
+}
+function githubCount(){
+  d3Div.selectAll("div").data(data).enter().append("div").style("background-color", (d)=> {
+    return d == 0 ? '#eee' : colorMap(d/100)
+  }).style("height","20px")
+}
+githubCount()

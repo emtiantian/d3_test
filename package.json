@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "node ./server/index.js",
     "build": "rollup --config rollup.config.js",
-    "dev": "concurrently \"npm run watch\" \"npm run sync-serve\"",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
     "watch": " rollup --config rollup.config.js --watch"
   },
   "keywords": [
