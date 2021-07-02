@@ -18,9 +18,14 @@
     "d3": "^7.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.14",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "browser-sync": "^2.26.14",
     "concurrently": "^6.2.0",
+    "eslint": "^7.29.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "rollup": "^2.52.2"
   }
 }
