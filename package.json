@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "serve": "node ./server/index.js",
-    "build": "rollup --config rollup.config.js",
+    "build": "npm run version && rollup --config rollup.config.js",
     "dev": "concurrently \"npm run watch\" \"npm run serve\"",
-    "watch": " rollup --config rollup.config.js --watch"
+    "watch": " rollup --config rollup.config.js --watch",
+    "version": "node ./version.js"
   },
   "keywords": [
     "d3"
@@ -18,9 +19,10 @@
     "d3": "^7.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.14",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "browser-sync": "^2.26.14",
     "concurrently": "^6.2.0",
-    "rollup": "^2.52.2"
+    "rollup": "^2.52.2",
+    "rollup-plugin-copy": "^3.4.0"
   }
 }

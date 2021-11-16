@@ -1,0 +1,1 @@
+window.version = '{"buildData":"2021-11-16T02:01:44.104Z","commitData":"2021-07-01T09:36:07.000Z","name":"hao503106@163.com","hash":"3e0e9d625023c9319b5de312070fdee8b47e8d22"}'
