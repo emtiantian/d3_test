@@ -1,3 +1,9 @@
+/**
+ * 需要打包之前引用 在build 命令之前添加如下命令：
+ *  node version.js && xxxx
+ * 实现打包后在env文件中添加 version字段展示打包时git 信息
+ * 修改时间、修改人、git commit hash等
+ */
 const execSync  = require("child_process").execSync
 const fs = require('fs')
 const path = require("path")
@@ -17,7 +23,7 @@ const setEnvVersion = (version,envPath) => {
           return
         }
         if (data.indexOf('window.version') === -1) {
-          fs.appendFileSync(envPath, `window.version = '${version}'`)
+          fs.appendFileSync(envPath, `\n  window.version = '${version}'`)
         } else {
           let str = data.substring(0, data.indexOf('window.version = ') + 16) + ` '${version}'`
           fs.writeFileSync(envPath, str)
