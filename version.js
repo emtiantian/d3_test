@@ -56,6 +56,7 @@ const getGitVersion = ()=>{
   version.commitData = new Date(execSync('git show -s --format=%cd').toString())
   version.name = execSync('git show -s --format=%ce').toString().trim()
   version.hash = execSync('git show -s --format=%H').toString(charSet).trim()
+  version.branch =execSync('git rev-parse --abbrev-ref HEAD').toString(charSet).trim()
   return version
 }
 
