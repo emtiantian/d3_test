@@ -8,8 +8,8 @@ const bs = require('browser-sync').create()
  */
 bs.init({
   port: 9003,
-  files: ['dist/*', 'public/*'],
+  files: ['dist/*'],
   server: {
-    index: './public/index.html'
+    index: './dist/index.html'
   }
 })

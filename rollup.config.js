@@ -1,5 +1,6 @@
 import copy from 'rollup-plugin-copy'
-import resolve from '@rollup/plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
 
 export default [
   {
@@ -7,15 +8,21 @@ export default [
     output: {
       file: 'dist/index.js',
       format: 'umd',
-      name:'index'
+      name: 'index'
     },
     watch: {
-      include: 'd3/**'
+      include: 'src/**',
+      exclude: 'node_modules/**'
     },
-    plugins:[resolve(),copy({
-      targets: [
-        { src: './public/*', dest: 'dist' },
-      ]
-    })]
-  },
-];
+    plugins: [
+      commonjs(),
+      resolve(),
+      copy({
+        targets: [
+          { src: './public/*', dest: 'dist' }
+        ]
+      })
+    ],
+    external: ['lodash']
+  }
+]
