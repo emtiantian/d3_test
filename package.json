@@ -4,9 +4,8 @@
   "description": "d3使用测试",
   "main": "index.js",
   "scripts": {
-    "serve": "node ./server/index.js",
+    "serve": "concurrently \"npm run watch\" \"node ./server/index.js\" ",
     "build": "npm run version && rollup --config rollup.config.js",
-    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
     "watch": " rollup --config rollup.config.js --watch",
     "version": "node ./version.js"
   },
@@ -16,11 +15,12 @@
   "author": "hao503106@163.com",
   "license": "ISC",
   "dependencies": {
-    "d3": "^7.0.0",
-    "rollup-plugin-commonjs": "^10.1.0"
+    "d3": "^7.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/d3": "^7.1.0",
     "browser-sync": "^2.26.14",
     "concurrently": "^6.2.0",
     "eslint": "^7.29.0",
@@ -29,6 +29,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "rollup": "^2.52.2",
-    "rollup-plugin-copy": "^3.4.0"
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "typescript": "^4.5.2"
   }
 }

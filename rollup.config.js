@@ -1,27 +1,33 @@
 import copy from 'rollup-plugin-copy'
 import resolve from '@rollup/plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
+
+import typescript from '@rollup/plugin-typescript'
+import sourcemaps from 'rollup-plugin-sourcemaps'
 
 export default [
   {
-    input: './index.js',
-    output: {
-      file: 'dist/index.js',
-      format: 'umd',
-      name: 'index'
-    },
+    input: './main.js',
+    output: [
+      {
+        file: 'dist/index.js',
+        format: 'esm',
+        name: 'index',
+        sourcemap: true
+      }
+    ],
     watch: {
       include: 'src/**',
       exclude: 'node_modules/**'
     },
     plugins: [
-      commonjs(),
       resolve(),
       copy({
         targets: [
           { src: './public/*', dest: 'dist' }
         ]
-      })
+      }),
+      typescript(),
+      sourcemaps()
     ],
     external: ['lodash']
   }
